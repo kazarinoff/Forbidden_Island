@@ -1,0 +1,632 @@
+<html>
+<head>
+    <title>Forbidden Island Clone</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="forbiddenislandclonestyle.css">
+
+</head>
+<body>
+<div id="maingame">
+    <div id="island"></div>
+    <div id="buttonbar">
+    <button id="startbutton">Start Game</button>
+    <button id="endturnbutton">End Turn</button>
+    <button id="endgamebutton">Fly Away!</button>
+    </div>
+    <div id="movecounter">
+            <h3></h3>
+            <h2></h2>
+        </div>
+    
+</div>
+    
+<div id="sidebar">
+    <div id="narrativebox">
+        <h3>Narrative</h3>
+        <div id="narration">
+        </div>
+    </div>
+    <!-- <h3>Background:</h3>
+    <p>You have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!</p>
+    <p>For more instructions, playthroughs etc:</p>
+    <ul>
+        <li><a href="https://gamewright.com/product/Forbidden-Island">To Buy</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Forbidden_Island_(game)">Basic Instructions</a></li>
+        <li><a href="https://www.youtube.com/watch?v=DxG_ahmF1uM">Humorous Playthrough</a></li>
+    </ul> -->
+</div>
+<div id="player1" class='playertoken'></div>
+<div id="player2" class='playertoken'></div>
+<div id="player3" class='playertoken'></div>
+<div id="player4" class='playertoken'></div>
+
+<div id='handbar'>
+        <div id='prizes'>
+        <h3>Found Treasures:</h3>
+        <div class="tile prize cup"></div>
+        <div class="tile prize lion"></div>
+        <div class="tile prize fire"></div>
+        <div class="tile prize orb"></div>
+    </div>
+            
+    <div class='hand' id='player1hand'></div>
+    <div class='hand' id='player2hand'></div>
+    <div class='hand' id='player3hand'></div>
+    <div class='hand' id='player4hand'></div>
+</div>
+
+
+<script>
+alert("Welcome to the Forbidden Island! In this game you play four intrepid adventurers who have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Your goal is to collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!");
+alert("This is webbased version of the popular boardgame designed by Matt Leacock and Gamewright Games. In this version you will play all four players. Click on the 'START GAME' button to read a brief (well kinda brief anyway) summary of the rules and begin.");
+$('#prizes .tile').hide();
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+};
+var difficultylevel=2;
+
+var a={id:1,name:"Fool's Landing",special:'foolslanding',x:0,y:0,waterlevel:0}
+var b={id:2,name:"Tidal Palace",special:'cup',x:0,y:0,waterlevel:0}
+var c={id:3,name:"Coral Palace",special:'cup',x:0,y:0,waterlevel:0}
+var d={id:4,name:"Cave of Shadows",special:'fire',x:0,y:0,waterlevel:0}
+var e={id:5,name:"Cave of Embers",special:'fire',x:0,y:0,waterlevel:0}
+var f={id:6,name:"Whispering Garden",special:'lion',x:0,y:0,waterlevel:0}
+var g={id:7,name:"Howling Garden",special:'lion',x:0,y:0,waterlevel:0}
+var h={id:8,name:"Temple of the Moon",special:'orb',x:0,y:0,waterlevel:0}
+var i={id:9,name:"Temple of the Sun",special:'orb',x:0,y:0,waterlevel:0}
+var j={id:10,name:"Breakers Bridge",special:'',x:0,y:0,waterlevel:0}
+var k={id:11,name:"Phantom Rock",special:'',x:0,y:0,waterlevel:0}
+var l={id:12,name:"Silver Gate",special:'',x:0,y:0,waterlevel:0}
+var m={id:13,name:"Watchtower",special:'',x:0,y:0,waterlevel:0}
+var n={id:14,name:"Copper Gate",special:'',x:0,y:0,waterlevel:0}
+var o={id:15,name:"Cliffs of Abandon",special:'',x:0,y:0,waterlevel:0}
+var p={id:16,name:"Twilight Hollow",special:'',x:0,y:0,waterlevel:0}
+var q={id:17,name:"Lost Lagoon",special:'',x:0,y:0,waterlevel:0}
+var r={id:18,name:"Crimson Forest",special:'',x:0,y:0,waterlevel:0}
+var s={id:19,name:"Gold Gate",special:'',x:0,y:0,waterlevel:0}
+var t={id:20,name:"Iron Gate",special:'',x:0,y:0,waterlevel:0}
+var u={id:21,name:"Dunes of Deception",special:'',x:0,y:0,waterlevel:0}
+var v={id:22,name:"Bronze Gate",special:'',x:0,y:0,waterlevel:0}
+var w={id:23,name:"Misty Marsh",special:'',x:0,y:0,waterlevel:0}
+var x={id:24,name:"Observatory",special:'',x:0,y:0,waterlevel:0}
+
+var alltiles = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,v,u,w,x];
+var alltiles2 = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,v,u,w,x];
+
+var tc=0, tl=1 ,tf=2 ,to=3 ,theli=4 ,tsb=5 ,twr=6 ;
+var alltreasures =[tc,tc,tc,tc,tc,tl,tl,tl,tl,tl,tf,tf,tf,tf,tf,to,to,to,to,to,theli,theli,theli,tsb,tsb,twr,twr,twr];
+var treasuresnowr =[tc,tc,tc,tc,tc,tl,tl,tl,tl,tl,tf,tf,tf,tf,tf,to,to,to,to,to,theli,theli,theli,tsb,tsb];
+var setuptreasurecards = shuffleArray(treasuresnowr);
+var treasuredeck= shuffleArray(alltreasures);
+var treasuredeckdiscards=[];
+
+var initialorder = shuffleArray(alltiles);
+var flooddeck = shuffleArray(alltiles2);
+var flooddeckdiscards=[];
+
+var island = 
+[
+[0,0,0,0,0,0,0,0],
+[0,1,0,initialorder[0],initialorder[1],0,2,0],
+[0,0,initialorder[2],initialorder[3],initialorder[4],initialorder[5],0,0],
+[0,initialorder[6],initialorder[7],initialorder[8],initialorder[9],initialorder[10],initialorder[11],0],
+[0,initialorder[12],initialorder[13],initialorder[14],initialorder[15],initialorder[16],initialorder[17],0],
+[0,0,initialorder[18],initialorder[19],initialorder[20],initialorder[21],0,0],
+[0,3,0,initialorder[22],initialorder[23],0,4,0],
+[0,0,0,0,0,0,0,0]
+];
+
+function tileposy(x){
+    for (var i=0; i<island.length;i++){
+        for (var j=0; j<island[i].length;j++){
+            if (island[i][j]==x){
+                return i;
+            };
+        };
+    };
+};
+function tileposx(x){
+    for (var i=0; i<island.length;i++){
+        for (var j=0; j<island[i].length;j++){
+            if (island[i][j]==x){
+                return j;
+            };
+        };
+    };
+};
+function alltilepositions(x){
+    for (var i=0;i<x.length;i++){
+        for (var j=0; j<x[i].length;j++){
+            x[i][j]['x']=j;
+            x[i][j]['y']=i;
+        };
+    };
+};
+alltilepositions(island);
+var player1={
+    name: "Pilot",
+    x: a['x'],
+    y: a['y'],
+    alive: true,
+    moves:0,
+    cards:{
+        cup:4,
+        lion:0,
+        fire:0,
+        orb:0,
+        heli:1,
+        sandbag:0
+    },
+    color:'blue'
+};
+var player2={
+    name: "Engineer",
+    x: v['x'],
+    y: v['y'],
+    alive: true,
+    moves:0,
+    cards:{
+        cup:0,
+        lion:3,
+        fire:0,
+        orb:0,
+        heli:0,
+        sandbag:0
+    },
+    color:'red'
+};
+var player3={
+    name: "Explorer",
+    x: n['x'],
+    y: n['y'],
+    alive: true,
+    moves:0,
+    cards:{
+        cup:0,
+        lion:0,
+        fire:4,
+        orb:0,
+        heli:0,
+        sandbag:1
+    },
+    color:'green'
+};
+var player4={
+    name: "Navigator",
+    x: s['x'],
+    y: s['y'],
+    alive: true,
+    moves:0,
+    cards:{
+        cup:0,
+        lion:0,
+        fire:0,
+        orb:4,
+        heli:0,
+        sandbag:0
+    },
+    color:'yellow'
+};
+var players=[[player1,player2,player3,player4],0];
+player=player1
+
+var tokens={
+    fire:false,
+    lion:false,
+    orb:false,
+    cup:false
+};
+
+function displayIsland(){
+    var output = '';
+    for (var i=0; i<island.length; i++){
+        output += "<div class='row'>";
+            for(j=0;j<island[i].length;j++){
+            if(island[i][j]==0){output += "<div class='tile wall'><p></p></div>";}
+            else if (island[i][j]==1){output += "<div class='tile cup prize'></div>";}
+            else if (island[i][j]==2){output += "<div class='tile fire prize'></div>";}
+            else if (island[i][j]==3){output += "<div class='tile lion prize'></div>";}
+            else if (island[i][j]==4){output += "<div class='tile orb prize'></div>";}
+            else if ((island[i][j]['waterlevel']==1) && (((i==player.y) && (j==player.x))|| ((i==player.y+1) && (j==player.x))||((i==player.y-1) && (j==player.x))|| ((i==player.y) && (j==player.x-1))|| ((i==player.y) && (j==player.x+1)) ))
+                {output+="<div id='"+island[i][j]['id']+"' class='tile sinking shoreable "+island[i][j]['special']+"'><p>"+island[i][j]['name']+"</p></div>"}
+            else if (island[i][j]['waterlevel']==1)
+                {output+="<div id='"+island[i][j]['id']+"' class='tile sinking "+island[i][j]['special']+"'><p>"+island[i][j]['name']+"</p></div>"}
+            else if (island[i][j]['waterlevel']==2)
+                {output+="<div id='"+island[i][j]['id']+"' class='tile sunk "+island[i][j]['special']+"'><p>"+island[i][j]['name']+"</p></div>"}
+            else 
+                {output+="<div id='"+island[i][j]['id']+"' class='tile "+island[i][j]['special']+"'><p>"+island[i][j]['name']+"</p></div>"}
+        }
+        output+="</div>";
+    }
+    document.getElementById('island').innerHTML = output;
+    
+}
+function displayPlayers(){ 
+    document.getElementById('player1').style.left =player1.x*98+20 +'px';
+    document.getElementById('player1').style.top =player1.y*98+20+'px';
+    document.getElementById('player2').style.left =player2.x*98+20 +'px';
+    document.getElementById('player2').style.top =player2.y*98+60 +'px';
+    document.getElementById('player3').style.left =player3.x*98+60 +'px';
+    document.getElementById('player3').style.top =player3.y*98+20 +'px';
+    document.getElementById('player4').style.left =player4.x*98+60 +'px';
+    document.getElementById('player4').style.top =player4.y*98+60 +'px';
+
+};
+
+function displayPlayer1Hand(){
+    output="<h5>Pilot</h5>";
+    output+="<div class='card cup'></div>".repeat(player1.cards.cup);
+    output+="<div class='card fire'></div>".repeat(player1.cards.fire);
+    output+="<div class='card lion'></div>".repeat(player1.cards.lion);
+    output+="<div class='card orb'></div>".repeat(player1.cards.orb);
+    output+="<div class='card heli'></div>".repeat(player1.cards.heli);
+    output+="<div class='card sandbag'></div>".repeat(player1.cards.sandbag);
+    document.getElementById('player1hand').innerHTML = output;
+};
+function displayPlayer2Hand(){
+    output="<h5>Engineer</h5>";
+    output+="<div class='card cup'></div>".repeat(player2.cards.cup);
+    output+="<div class='card fire'></div>".repeat(player2.cards.fire);
+    output+="<div class='card lion'></div>".repeat(player2.cards.lion);
+    output+="<div class='card orb'></div>".repeat(player2.cards.orb);
+    output+="<div class='card heli'></div>".repeat(player2.cards.heli);
+    output+="<div class='card sandbag'></div>".repeat(player2.cards.sandbag);
+    document.getElementById('player2hand').innerHTML = output;
+};
+function displayPlayer3Hand(){
+    output="<h5>Explorer</h5>"
+    output+="<div class='card cup'></div>".repeat(player3.cards.cup);
+    output+="<div class='card fire'></div>".repeat(player3.cards.fire);
+    output+="<div class='card lion'></div>".repeat(player3.cards.lion);
+    output+="<div class='card orb'></div>".repeat(player3.cards.orb);
+    output+="<div class='card heli'></div>".repeat(player3.cards.heli);
+    output+="<div class='card sandbag'></div>".repeat(player3.cards.sandbag);
+    document.getElementById('player3hand').innerHTML = output;
+};
+function displayPlayer4Hand(){
+    output="<h5>Navigator</h5>"
+    output+="<div class='card cup'></div>".repeat(player4.cards.cup);
+    output+="<div class='card fire'></div>".repeat(player4.cards.fire);
+    output+="<div class='card lion'></div>".repeat(player4.cards.lion);
+    output+="<div class='card orb'></div>".repeat(player4.cards.orb);
+    output+="<div class='card heli'></div>".repeat(player4.cards.heli);
+    output+="<div class='card sandbag'></div>".repeat(player4.cards.sandbag);
+    document.getElementById('player4hand').innerHTML = output;
+};
+function displayHands(){
+    displayPlayer1Hand();
+    displayPlayer2Hand();
+    displayPlayer3Hand();
+    displayPlayer4Hand();
+}
+displayIsland();
+displayHands();
+displayPlayers();
+
+function flooddeckdrawing(){
+    for (var i=0;i<difficultylevel;i++){
+        flooddeckdiscards.push(flooddeck[flooddeck.length-1]);
+        flooddeckdiscards[flooddeckdiscards.length-1]['waterlevel']+=1;
+        if (flooddeckdiscards[flooddeckdiscards.length-1]['waterlevel']==1){
+            $("#narrativebox h3 ").after ("<p>"+flooddeckdiscards[flooddeckdiscards.length-1]['name']+" is flooding</p>")};
+        flooddeck.pop();
+        if (flooddeckdiscards[flooddeckdiscards.length-1]['waterlevel']==2){
+            $("#narrativebox h3 ").after ("<p>"+flooddeckdiscards[flooddeckdiscards.length-1]['name']+" has SUNK into the sea!!!</p>");
+            flooddeckdiscards.pop();
+            }
+        if (flooddeck.length==0){
+            flooddeck=shuffleArray(flooddeckdiscards)
+            }
+    displayIsland();
+};
+};
+
+function treasuredeckdrawing(){
+    if (treasuredeck.length==0){
+        treasuredeck=shuffleArray(treasuredeckdiscards);
+        treasuredeckdiscards=[];
+    }
+    if (treasuredeck[treasuredeck.length-1]==twr){
+        treasuredeckdiscards.push(twr);
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tc){
+        player.cards.cup++;
+        $("#narrativebox h3 ").after ("<p>You drew a cup treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tl){
+        player.cards.lion++;
+        $("#narrativebox h3 ").after ("<p>You drew a lion treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tf){
+        player.cards.fire++;
+        $("#narrativebox h3 ").after ("<p>You drew a fire treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==to){
+        player.cards.orb++;
+        $("#narrativebox h3 ").after ("<p>You drew an orb treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==theli){
+        player.cards.heli++;
+        $("#narrativebox h3 ").after ("<p>You drew a helicopter lift card. Click on this card to move the current player to any unsunk tile on the board.</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tsb){
+        player.cards.sandbag++;
+        $("#narrativebox h3 ").after ("<p>You drew a sandbags card. Click on this card to shore up any tile.</p>");
+        treasuredeck.pop();
+    }
+    displayHands();
+    if (treasuredeck.length==0){
+        treasuredeck=shuffleArray(treasuredeckdiscards);
+        treasuredeckdiscards=[];
+    }
+    if (treasuredeck[treasuredeck.length-1]==twr){
+        treasuredeckdiscards.push(twr);
+        treasuredeck.pop();
+        waterrisecard();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tc){
+        player.cards.cup++;
+        $("#narrativebox h3 ").after ("<p>You drew an cup treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tl){
+        player.cards.lion++;
+        $("#narrativebox h3 ").after ("<p>You drew an lion treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tf){
+        player.cards.fire++;
+        $("#narrativebox h3 ").after ("<p>You drew an fire treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==to){
+        player.cards.orb++;
+        $("#narrativebox h3 ").after ("<p>You drew an orb treasure card</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==theli){
+        player.cards.heli++;
+        $("#narrativebox h3 ").after ("<p>You drew a helicopter lift card. Click on this card to move the current player to any unsunk tile on the board.</p>");
+        treasuredeck.pop();
+    }
+    else if (treasuredeck[treasuredeck.length-1]==tsb){
+        player.cards.sandbag++;
+        $("#narrativebox h3 ").after ("<p>You drew a sandbags card. Click on this card to shore up any tile.</p>");
+        treasuredeck.pop();
+    }
+    displayHands();
+}
+function waterrisecard(){
+    difficultylevel+=.5;
+    $("#narrativebox h3 ").after ("<p>The water is rising! The water level is now set to "+difficultylevel+" and the flooddeck discards have been shuffled and put on top of the flood deck. Beware of island tiles sinking into the sea!</p>");
+    putbackdeck=shuffleArray(flooddeckdiscards);
+    for (var i=0;i<putbackdeck.length;i++){
+        flooddeck.push(putbackdeck[i]);
+    };
+    flooddeckdiscards=[];
+};
+
+startbutton.onclick= function startgame(){
+player.moves+=3
+for (var i=0;i<6;i++){
+        flooddeckdiscards.push(flooddeck[flooddeck.length-1]);
+        flooddeckdiscards[flooddeckdiscards.length-1]['waterlevel']+=1;
+        flooddeck.pop();
+    }
+displayIsland();
+
+for (var j=0;j<players[0].length;j++){ 
+    for (var i=0;i<2;i++){
+        if (setuptreasurecards[setuptreasurecards.length-1]==tc){
+            player.cards.cup++;
+            setuptreasurecards.pop();
+        }
+        else if (setuptreasurecards[setuptreasurecards.length-1]==tl){
+            player.cards.lion++;
+            setuptreasurecards.pop();
+        }
+        else if (setuptreasurecards[setuptreasurecards.length-1]==tf){
+            player.cards.fire++;
+            setuptreasurecards.pop();
+        }
+        else if (setuptreasurecards[setuptreasurecards.length-1]==to){
+            player.cards.orb++;
+            setuptreasurecards.pop();
+        }
+        else if (setuptreasurecards[setuptreasurecards.length-1]==theli){
+            player.cards.heli++;
+            setuptreasurecards.pop();
+        }
+        else if (setuptreasurecards[setuptreasurecards.length-1]==tsb){
+            player.cards.sandbag++;
+            setuptreasurecards.pop();
+        }
+    }
+    players[1]=(players[1]+1) % players[0].length;
+    player=players[0][players[1]];
+}
+displayHands();
+displayPlayers();
+alert ("Some of the island has started to sink, but luckily you start out with some treasure cards too. Good luck!");
+alert("During each turn you have 3 actions to use. You can move your token with the arrow keys, using one action per move. You can also click on any submerged tiles that you are on or adjacent to, 'to shore them up'.")
+alert("Click on the 'END TURN' button to advance to the next player's turn. You will recieve two treasure more cards (displayed on the right), and a few more tiles will begin to sink (remember you want to use actions to shore them up!)")
+alert("You can  move across submerged tiles, but you will want to try to 'shore them up' with your actions before they SINK completely. You cannot move over sunk tiles, and they cannot be saved")
+alert("Sometimes the 'WATERS WILL RISE'. This is BAD- when it happens, the flood cards already drawn are shuffled and put on the top of the deck so they will come up again and will quickly lead to submerged tiles becoming sunk")
+alert("When a player has 4 of the same treasure card they can discover that treasure by moving to one of the squares with a title colored like the treasure. Then click on the treasure to claim it.")
+alert("The game is won when you discover all 4 treasures, move all players back on the landing pad, and fly away using a 'HELICOPTER LIFT' card")
+alert("GOT IT? Let's hope so. You start playing as the "+player['name']+" ("+player['color']+").")
+$("#narrativebox h3 ").after ("<p>It's now the "+player['name']+"'s ("+player['color']+") turn.</p>");
+};
+
+$('#endturnbutton').click (function (){
+    player.moves==0;
+    treasuredeckdrawing();
+    flooddeckdrawing();
+    players[1]=(players[1]+1) % players[0].length;
+    player=players[0][players[1]];
+    player.moves+=3
+    $("#narrativebox h3 ").after ("<p>It's now the "+player['name']+"'s ("+player['color']+") turn.</p>");
+    displayIsland();
+});
+$(document).on('click','#endgamebutton',function (){
+    if ((player1.x==a.x)&&(player2.x==a.x)&&(player3.x==a.x)&&(player4.x==a.x)&&(player1.y==a.y)&&(player2.y==a.y)&&(player3.y==a.y)&&(player4.y==a.y)){
+        if ((tokens.fire) && (tokens.lion) && (tokens.cup) && (tokens.orb)){
+            if ((player1.cards.heli>0)||(player2.cards.heli>0)||(player3.cards.heli>0)||(player4.cards.heli>0)){
+                alert("Fighting over swampyland and sea you have found all 4 treasures and made it back to your spaceship in one piece! Congratulations, you win!!!")
+                $("#narrativebox h3 ").after ("YOU WON!!!");
+            }
+            else{alert("You need a helicopter lift card to get back to the spaceship in order to leave this hostile planet.")}
+        }
+        else{alert("You must discover all 4 treaasures before flying away")}
+    }
+    else{alert("You can't leave anyone behind! Get all players to Fool's Landing together before using a helicopter to lift the party back to the spaceship.")}
+});
+
+document.onkeydown = function moveplayer(e){
+    if (player.moves>0){
+        if (e.keyCode==37 && island[player.y][player.x-1]['waterlevel'] <2 && island[player.y][player.x-1]!=0){
+            player.x--;
+            player.moves--;
+            $("#narrativebox h3 ").after ("<p>The "+player['name']+" has moved to the "+island[player.y][player.x].name+".</p>");
+            }
+        else if (e.keyCode==39 && island[player.y][player.x+1] !=0 && island[player.y][player.x+1]['waterlevel'] <2){
+            player.x++;
+            player.moves--;
+            $("#narrativebox h3 ").after ("<p>The "+player['name']+" has moved to the "+island[player.y][player.x].name+".</p>");
+            }
+        else if (e.keyCode==38 && island[player.y-1][player.x] !=0 && island[player.y-1][player.x]['waterlevel'] <2){
+            player.y--;
+            player.moves--;
+            $("#narrativebox h3 ").after ("<p>The "+player['name']+" has moved to the "+island[player.y][player.x].name+".</p>");
+            }
+        else if (e.keyCode==40 && island[player.y+1][player.x] !=0 && island[player.y+1][player.x]['waterlevel'] <2){
+            player.y++;
+            player.moves--;
+            $("#narrativebox h3 ").after ("<p>The "+player['name']+" has moved to the "+island[player.y][player.x].name+".</p>");
+            }
+    displayIsland();
+    displayPlayers();
+    };
+};
+$('#island').on('click','.shoreable', function(){
+        if (player.moves>=1){
+            h=$(this).attr('id');
+            for (var i=0;i<alltiles.length;i++){
+                if (h==alltiles[i].id){
+                    alltiles[i].waterlevel=0;
+                    player.moves--;
+                    $("#narrativebox h3 ").after ("<p>The "+player['name']+" has shored up the "+alltiles[i].name+".</p>");
+                }
+            }
+        }
+        displayIsland();
+});
+$('#handbar').on('click','.sandbag', function(){
+    alert("Click on the tile that you'd like to shore up.")
+    $(this).fadeOut(1000);
+    player.cards.sandbag--;
+    $('#island').on('click','.sinking',function(){
+        h=$(this).attr('id');
+        for (var i=0;i<alltiles.length;i++){
+            if (h==alltiles[i].id){
+                alltiles[i].waterlevel=0;
+                $("#narrativebox h3 ").after ("<p>You used a sandbag to shore up the "+alltiles[i].name+".</p>");
+                displayIsland();
+            }
+        }
+    });
+});
+$('#handbar').on('click','.heli', function(){
+    alert("Click on the tile that you'd like to move "+player.name+" to.")
+    $(this).fadeOut(1000);
+    player.cards.heli--;
+    $('#island').on('click','.tile',function(){
+        h=$(this).attr('id');
+        for (var i=0;i<alltiles.length;i++){
+            if (h==alltiles[i].id){
+                player.x=alltiles[i].x;
+                player.y=alltiles[i].y;
+                $("#narrativebox h3 ").after ("<p>A helicopter lift took you across the board to the "+alltiles[i].name+".</p>");
+                displayPlayers();
+                displayIsland();
+                $('#island').off('click','.tile')
+            }
+        }
+    });
+    
+});
+$('#island').on('click','.prize.cup', function(){ 
+    if (player.cards.cup>=4){
+        if (island[player.y][player.x].special=='cup'){
+            tokens.cup=true;
+            player.cards.cup-=4;
+            island[1][1]=0;
+            displayHands();
+            displayIsland();
+            alert("You've discovered the Ocean's Chalice!")
+            $("#narrativebox h3 ").after ("<p>You've discovered the Ocean's Chalice!</p>");
+            $('#prizes .cup').fadeIn(1000);
+
+        }
+    }
+});
+$('#island').on('click','.prize.lion', function(){ 
+    if (player.cards.lion>=4){
+        if (island[player.y][player.x].special=='lion'){
+            tokens.lion=true;
+            player.cards.lion-=4;
+            island[6][1]=0;
+            displayHands();
+            displayIsland();
+            alert("You've discovered the Statue of the Wind!")
+            $("#narrativebox h3 ").after ("<p>You've discovered the Statue of the Wind!</p>");
+            $('#prizes .lion').fadeIn(1000);
+        }
+    }
+});
+$('#island').on('click','.prize.fire', function(){ 
+    if (player.cards.fire>=4){
+        if (island[player.y][player.x].special=='fire'){
+            tokens.fire=true;
+            player.cards.fire-=4;
+            island[1][6]=0;
+            displayIsland()
+            displayHands();
+            alert("You've discovered the Crystal of Fire!")
+            $("#narrativebox h3 ").after ("<p>You've discovered the Crystal of Fire!!</p>");
+            $('#prizes .fire').fadeIn(1000);
+        }
+    }
+});
+$('#island').on('click','.prize.orb', function(){ 
+    if (player.cards.orb>=4){
+        if (island[player.y][player.x].special=='orb'){
+            tokens.orb=true;
+            player.cards.orb-=4;
+            island[6][6]=0;
+            displayIsland();
+            displayHands();
+            alert("You've discovered the Earthstone!")
+            $("#narrativebox h3 ").after ("<p>You've discovered the Earthstone!</p>");
+            $('#prizes .orb').fadeIn(1000);
+        }
+    }
+});
+$(document).on()
+
+</script>
+</body>
+</html>
