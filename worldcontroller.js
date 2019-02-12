@@ -81,7 +81,7 @@ module.exports={
     },
     moveplayer: function(world,n){
         p=world.player
-        if (p.moves>0){
+        if (p.moves>=1){
             if (n==37 && world.island[p.y][p.x-1]['waterlevel'] <2 && world.island[p.y][p.x-1]!=0){
                 p.x--;
                 p.moves--;

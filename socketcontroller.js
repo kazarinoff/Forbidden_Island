@@ -1,42 +1,15 @@
-const express    = require('express'),
-      app        = express(),
-      path       = require('path'),
-      session    = require('express-session'),
-      flash      = require('express-flash'),
-      port       = 8000,
-      World      = require('./islandmodel');
-      worldcontroller = require('./worldcontroller')
-
-app.use(flash());
-app.use(session({
-    secret:'mysecretkey',
-    resave:'false',
-    saveUninitialized: 'true',
-    cookie: {maxAge: 90000}
-}));
-
-app.use(express.static(path.join(__dirname, 'static')));
-
-app.set(path.join('views', __dirname, 'views'));
-app.set('view engine', 'ejs');
-app.get('/',function(req,res){res.render('index',{})});
-
-const server = app.listen(port, function() {
-    console.log(`listening on port ${port}`);
-    })
-
-const io = require('socket.io')(server);
-var world= new World;
 var playernumber=0;
 var chat=[]
 const sendworld =function(message=''){
     io.emit('theworld',{world,thismessage:message})
     }
 
-io.on('connection', function(socket) 
+module.exports =
+
+function(socket)
     {
     socket.on('here',function(data){
-        socket.emit('startsocket',{world,player:playernumber,message:'welcome to the Forbidden Island!'});
+        socket.emit('startsocket',{world,player:playernumber,message: 'welcome to the Forbidden Island! You are player '+playernumber});
         playernumber++;
     })
 
@@ -48,7 +21,7 @@ io.on('connection', function(socket)
         }
     })
     socket.on('chat',function(data){
-        chat.push(data.comment);
+        chat.push({comment:data.comment,user:data.user});
         console.log(chat);
         io.emit('chattext',{text:chat});
     })
@@ -84,4 +57,4 @@ io.on('connection', function(socket)
         x=worldcontroller.claimprize(world,data.prize);
         sendworld("you found the "+x+" prize");
     })
-    });
+}

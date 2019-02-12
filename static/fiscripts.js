@@ -109,7 +109,7 @@ socket.emit('here',{});
 socket.on('startsocket', function(data){
     thesocketworld=data.world;
     playernumber=data.player;
-    console.log('Im number #',playernumber);
+    alert(data.message);
     $(document).on()
     displayEverthing(thesocketworld);
 });
@@ -119,14 +119,7 @@ $('#commentform').submit(function(event){
     event.preventDefault();
 })
 socket.on('chattext',function(data){
-    console.log("HERE");
-    var x="<ul id='chats>";
-    for (var i=0;i<data.text.length;i++){
-        x+="<li>"+data.text[i]+"</li>"
-    }
-    x+= "</ul>";
-    console.log('this is x:',x);
-    $('#chats').append("this is text");
+    $('#chats').append("<p>Player "+data.text[data.text.length-1].user+": "+data.text[data.text.length-1].comment+"</p>")
 })
 startbutton.onclick= function () {
         if (thesocketworld.state =='none'){
@@ -151,7 +144,7 @@ $('#endgamebutton').click(function(){
 
 document.onkeydown= function(e){
     if (thesocketworld.player.order==playernumber){
-        if (thesocketworld.player.moves>0){
+        if (thesocketworld.player.moves>=1){
             socket.emit('moveplayer',{keynum: e.keyCode})
         }
     }
