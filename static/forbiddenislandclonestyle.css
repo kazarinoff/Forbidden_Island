@@ -20,6 +20,12 @@ div.playertoken{
     width: 500px;
     vertical-align: top;
 }
+
+#narrativebox{
+    border: 1pt, solid, black;
+    background-color: sandybrown;
+}
+
 #player1{
     background-color: blue;
 }
@@ -66,6 +72,8 @@ div.hand{
 #handbar {
     display: inline-block;
     width: 100px;
+    font-size:14pt;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
 div.card {
@@ -198,15 +206,27 @@ p{
 }
 #player1hand {
     color:blue;
+    text-decoration: underline;
+    text-decoration-color:blue;
+
 }
 #player2hand {
     color:red;
+    text-decoration: underline;
+    text-decoration-color: red;
+
 }
 #player3hand {
     color:green;
+    text-decoration: underline;
+    text-decoration-color:green;
+
 }
 #player4hand {
     color:yellow;
+    text-decoration: underline;
+    text-decoration-color:yellow;
+
 }
 .prize.cup{
     background-image: url(cupprize.jpg);

@@ -1,19 +1,10 @@
 const express    = require('express'),
       app        = express(),
       path       = require('path'),
-      session    = require('express-session'),
-      flash      = require('express-flash'),
       port       = 8000,
       World      = require('./islandmodel');
       worldcontroller = require('./worldcontroller')
 
-app.use(flash());
-app.use(session({
-    secret:'mysecretkey',
-    resave:'false',
-    saveUninitialized: 'true',
-    cookie: {maxAge: 90000}
-}));
 
 app.use(express.static(path.join(__dirname, 'static')));
 

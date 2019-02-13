@@ -81,16 +81,16 @@ module.exports=
         alltilepositions(this.island);
 
         this.player1 = {name: "Pilot", x: this.tiles.a['x'], y: this.tiles.a['y'], alive: true, moves:0,
-            cards:{cup:4, lion:0, fire:0, orb:0, heli:1, sandbag:0, order:0},
+            cards:{cup:1, lion:0, fire:0, orb:0, heli:1, sandbag:0, order:0},
             color:'blue'};
         this.player2 = {name: "Engineer", x: this.tiles.v['x'], y: this.tiles.v['y'], alive: true,moves:0,
-            cards:{cup:0, lion:4, fire:0, orb:0, heli:0, sandbag:0, order:1},
+            cards:{cup:0, lion:1, fire:0, orb:0, heli:0, sandbag:0, order:1},
             color:'red'};
         this.player3={ name: "Explorer",x: this.tiles.n['x'],y: this.tiles.n['y'],alive: true,moves:0,
-            cards:{cup:0,lion:0,fire:4,orb:0,heli:0,sandbag:0, order:0},
+            cards:{cup:0,lion:0,fire:1,orb:0,heli:0,sandbag:0, order:0},
             color:'green'};
         this.player4={name: "Navigator",x: this.tiles.s['x'],y: this.tiles.s['y'],alive: true,moves:0,
-            cards:{cup:0,lion:0,fire:0,orb:4,heli:0,sandbag:0, order:1},
+            cards:{cup:0,lion:0,fire:0,orb:1,heli:0,sandbag:2, order:1},
             color:'yellow'};
 
         this.players=[[this.player1,this.player2,this.player3,this.player4],0];
@@ -118,7 +118,7 @@ module.exports=
     };
     waterrisecard(){
         this.difficultylevel+=.5;
-        this.narrative.push("The water is rising! The water level is now set to HIGHERDIFFICULTY");
+        this.narrative.push("The water is rising! The water level is now set to "+this.difficultylevel);
         this.putbackdeck=shuffleArray(this.flooddeckdiscards);
         for (var i=0;i<this.putbackdeck.length;i++){
             this.flooddeck.push(this.putbackdeck[i]);

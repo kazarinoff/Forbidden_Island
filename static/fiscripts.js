@@ -143,11 +143,11 @@ $('#endgamebutton').click(function(){
 
 
 document.onkeydown= function(e){
-    if (thesocketworld.player.order==playernumber){
+    // if (thesocketworld.player.order==playernumber){
         if (thesocketworld.player.moves>=1){
             socket.emit('moveplayer',{keynum: e.keyCode})
         }
-    }
+    // }
 }
 $('#island').on('click','.shoreable', function(){
     if (thesocketworld.player.moves>=1){
