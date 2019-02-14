@@ -12,7 +12,6 @@ var io = require('socket.io').listen(server);
 
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.static('nodemodules/'))
-app.use(express.static('static'));
 
 app.set(path.join('views', __dirname, 'views'));
 app.set('view engine', 'ejs');
