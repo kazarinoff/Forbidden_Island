@@ -1,22 +1,27 @@
 const express    = require('express'),
       app        = express(),
       path       = require('path'),
-      port       = 8000,
-      World      = require('./islandmodel');
-      worldcontroller = require('./worldcontroller')
+      port       = 9600,
+      World      = require('./islandmodel'),
+      worldcontroller = require('./worldcontroller'),
+      http       = require('http');
+
+var server =http.createServer(app);
+var io = require('socket.io').listen(server);
 
 
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static('nodemodules/'))
+app.use(express.static('static'));
 
 app.set(path.join('views', __dirname, 'views'));
 app.set('view engine', 'ejs');
 app.get('/',function(req,res){res.render('index',{})});
 
-const server = app.listen(port, function() {
+server.listen(port, function() {
     console.log(`listening on port ${port}`);
     })
 
-const io = require('socket.io')(server);
 var world= new World;
 var playernumber=0;
 var chat=[]
