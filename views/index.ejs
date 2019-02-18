@@ -1,70 +1,73 @@
-<html>
-<head>
-    <title>Forbidden Island Clone</title>
-    <script src="/jquery.min.js"></script>
-    <script type="text/javascript" src="http://localhost:9600/socket.io/socket.io.js" ></script>
-    <script type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="/forbiddenislandclonestyle.css">
-</head>
-<body>
-<div id="maingame">
-    <div id="island"></div>
-    <div id="buttonbar">
-    <button id="startbutton">Start Game</button>
-    <button id="endturnbutton">End Turn</button>
-    <button id="endgamebutton">Fly Away!</button>
-    </div>
-    <h4>Chat:</h4>
-    <form id='commentform'>Say Something
-        <input type='text' name='chattext'>
-        <input type='submit' value='Send'>
-    </form>
+<style>
+*{
+    background-color: royalblue;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tvbox{
+    display: inline-block;
+    border: 1pt solid blueviolet;
+    vertical-align: top;
+}
+.projectpic{
+    height: 200px;
+}
 
-    <ul id='chats'>
-    </ul>
-    <div id="movecounter">
-            <h3></h3>
-            <h2></h2>
-        </div>
-    
-</div>
-    
-<div id="sidebar">
-    <div id="narrativebox">
-        <h3>Narrative- Moves:<span id='movesleft'></span></h3>
-        <div id="narration">
-            some data
-        </div>
-    </div>
-    <!-- <h3>Background:</h3>
-    <p>You have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!</p>
-    <p>For more instructions, playthroughs etc:</p>
+.projectpic:hover {
+    -ms-transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    transform: scale(3, 3) translateX(+40%);
+}
+</style>
+
+<div id='about'>
+    <h1>ABOUT ME</h1>
+    <p>A driven full stack developer with strong analytical and logic skills.  Steadiness,. My programming skills are enhanced by six years experience in non-profit fundraising, always with an eye towards furthering the mission of the company
+            Experience with customer facing positions 
+            </p>
     <ul>
-        <li><a href="https://gamewright.com/product/Forbidden-Island">To Buy</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Forbidden_Island_(game)">Basic Instructions</a></li>
-        <li><a href="https://www.youtube.com/watch?v=DxG_ahmF1uM">Humorous Playthrough</a></li>
-    </ul> -->
-</div>
-<div id="player1" class='playertoken'></div>
-<div id="player2" class='playertoken'></div>
-<div id="player3" class='playertoken'></div>
-<div id="player4" class='playertoken'></div>
-
-<div id='handbar'>
-    <div id='prizes'>
-        <h3>Found Treasures:</h3>
-        <div class="tile prize cup"></div>
-        <div class="tile prize lion"></div>
-        <div class="tile prize fire"></div>
-        <div class="tile prize orb"></div>
-    </div>
-            
-    <div class='hand' id='player1hand'></div>
-    <div class='hand' id='player2hand'></div>
-    <div class='hand' id='player3hand'></div>
-    <div class='hand' id='player4hand'></div>
+        <li>Languages: JavaScript (ES5, ES6), Python, Ruby, TypeScript, HTML5, CSS</li>
+        <li>Front-End/Libraries: Mongoose, JQuery, Ajax, Bootstrap, SocketIO </li>
+        <li>Frameworks: Rails, Angular, Django, Node.js, Express, Flask</li>
+        <li>Dev Tools: AWS, GitHub, Nginx, VS Code, Postman, MySQL Workbench</li>
+        <li>Methodologies: OOP, MVC, TDD, CRUD Operations, RESTful architecture</li>
+        <li> Databases: PostgreSQL, SQLite, Mongoose, </li>
+        <li>CRMS: Tessitura, Salesforce</li>
+    </ul>
 </div>
 
-<script src='/fiscripts.js'></script>
-</body>
-</html>
+<div id='cutco'>
+  <h1>CUTCO-College and University Transfer Coursebook Online</h1>
+  <h2>The Project</h2>
+  <img class='projectpic' src='/static/cutcoscreenshot.png'>
+  <p>Community college students have to navigate an ever changing world of where and how their course credits will transfer to 4-year institutions. This site aims to ease the process by serving as a central repository for administrators and faculty to keep up to date on course information, and for students to stay in the know to complete their degrees </p>
+  <ol>
+    <li>Built on Django framework on Python-language code in order to better collaborate with current instructors </li>
+    <li>Uses built-in functionality of SQL-lite database, but includes medium complexity relationships of course equivalencies across many instututions, and varying administrative levels needed</li>
+    <li>Anticipated usage starting in April 2019</li>
+  </ol>
+</div>
+
+<div id='nutellaWiki'>
+    <h1>NutellaWiki- A family repository</h1>
+    <h2>The Project</h2>
+    <img class='projectpic' src='/static/nutellawikiscreenshot.png'>
+    <p>A direct lesson in obselescene, the impetus for this project was the impending closure my family's "Wiki". Started by my dad, 10 years ago, it mainly serves as an online spot for favorite (mostly holiday) recipes, and vacation planing and discussion.</p>
+    <ol>
+      <li>Coded with Ruby on Rails, making use of the """"gem to have a WYSIWYG html editor for the whole family to create with.</li>
+      <li>Anticipated deployment February 2019</li>
+      <li>Are you always calling your mom for that stuffing recipe? Put it on the Nutella Wiki instead!</li>
+    </ol>
+</div>
+
+<div id='forbiddenIsland'>
+    <h1>Forbidden Island</h1>
+    <h2>The Project</h2>
+    <img class='projectpic' src='/static/fiscreenshot.png'>
+    <p>I'm an avid board gamer, and learning coding game me the skills to create games myself. This is a clone of the popular cooperative game "Forbidden Island".</p>
+    <ol>
+      <li>Written using simple OOP javascript</li>
+      <li>I've included some JQuery to make the animations pop</li>
+      <li>Find a friend to play! the game has socket functionality, to closer mirror the cooperative feel!</li>
+    </ol>
+</div>

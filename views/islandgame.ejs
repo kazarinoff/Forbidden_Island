@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>Forbidden Island Clone</title>
+    <script src="/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost:9600/socket.io/socket.io.js" ></script>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/forbiddenislandclonestyle.css">
+</head>
+<body>
+<div id="maingame">
+    <div id="island"></div>
+    <div id="buttonbar">
+    <button id="startbutton">Start Game</button>
+    <button id="endturnbutton">End Turn</button>
+    <button id="endgamebutton">Fly Away!</button>
+    </div>
+    <h4>Chat:</h4>
+    <form id='commentform'>Say Something
+        <input type='text' name='chattext'>
+        <input type='submit' value='Send'>
+    </form>
+
+    <ul id='chats'>
+    </ul>
+    <div id="movecounter">
+            <h3></h3>
+            <h2></h2>
+        </div>
+    
+</div>
+    
+<div id="sidebar">
+    <div id="narrativebox">
+        <h3>Narrative- Moves:<span id='movesleft'></span></h3>
+        <div id="narration">
+            some data
+        </div>
+    </div>
+    <!-- <h3>Background:</h3>
+    <p>You have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!</p>
+    <p>For more instructions, playthroughs etc:</p>
+    <ul>
+        <li><a href="https://gamewright.com/product/Forbidden-Island">To Buy</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Forbidden_Island_(game)">Basic Instructions</a></li>
+        <li><a href="https://www.youtube.com/watch?v=DxG_ahmF1uM">Humorous Playthrough</a></li>
+    </ul> -->
+</div>
+<div id="player1" class='playertoken'></div>
+<div id="player2" class='playertoken'></div>
+<div id="player3" class='playertoken'></div>
+<div id="player4" class='playertoken'></div>
+
+<div id='handbar'>
+    <div id='prizes'>
+        <h3>Found Treasures:</h3>
+        <div class="tile prize cup"></div>
+        <div class="tile prize lion"></div>
+        <div class="tile prize fire"></div>
+        <div class="tile prize orb"></div>
+    </div>
+            
+    <div class='hand' id='player1hand'></div>
+    <div class='hand' id='player2hand'></div>
+    <div class='hand' id='player3hand'></div>
+    <div class='hand' id='player4hand'></div>
+</div>
+
+<script src='/fiscripts.js'></script>
+</body>
+</html>
