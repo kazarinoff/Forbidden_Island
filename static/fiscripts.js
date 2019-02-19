@@ -141,7 +141,9 @@ $('#endgamebutton').click(function(){
     socket.emit('endgame',{})
 });
 
-
+$('#stopgamebutton').click (function (){
+    socket.emit('stopgame',{})
+});
 document.onkeydown= function(e){
     // if (thesocketworld.player.order==playernumber){
         if (thesocketworld.player.moves>=1){
