@@ -133,6 +133,9 @@ $('#endgamebutton').click(function(){
     socket.emit('endgame',{})
 });
 
+$('#stopgamebutton').click (function (){
+    socket.emit('stopgame',{})
+});
 document.onkeydown= function(e){
     // if (thesocketworld.player.order==playernumber){
         if (thesocketworld.player.moves>=1){
@@ -193,16 +196,15 @@ $('#island').on('click','.prize.orb', function(){
 
 $(document).on()
 
-// alert("Welcome to the Forbidden Island! In this game you play four intrepid adventurers who have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Your goal is to collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!");
-// alert("This is webbased version of the popular boardgame designed by Matt Leacock and Gamewright Games. In this version you will play all four players. Click on the 'START GAME' button to read a brief (well kinda brief anyway) summary of the rules and begin.");
-
-// alert ("Some of the island has started to sink, but luckily you start out with some treasure cards too. Good luck!");
-// alert("During each turn you have 3 actions to use. You can move your token with the arrow keys, using one action per move. You can also click on any submerged tiles that you are on or adjacent to, 'to shore them up'.")
-// alert("Click on the 'END TURN' button to advance to the next player's turn. You will recieve two treasure more cards (displayed on the right), and a few more tiles will begin to sink (remember you want to use actions to shore them up!)")
-// alert("You can  move across submerged tiles, but you will want to try to 'shore them up' with your actions before they SINK completely. You cannot move over sunk tiles, and they cannot be saved")
-// alert("Sometimes the 'WATERS WILL RISE'. This is BAD- when it happens, the flood cards already drawn are shuffled and put on the top of the deck so they will come up again and will quickly lead to submerged tiles becoming sunk")
-// alert("When a player has 4 of the same treasure card they can discover that treasure by moving to one of the squares with a title colored like the treasure. Then click on the treasure to claim it.")
-// alert("The game is won when you discover all 4 treasures, move all players back on the landing pad, and fly away using a 'HELICOPTER LIFT' card")
-// alert("GOT IT? Let's hope so. You start playing as the "+player['name']+" ("+player['color']+").")
-// $("#narrativebox h3 ").after ("<p>It's now the "+player['name']+"'s ("+player['color']+") turn.</p>");
+alert("Welcome to the Forbidden Island! In this game you play four intrepid adventurers who have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Your goal is to collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!");
+alert("This is webbased version of the popular boardgame designed by Matt Leacock and Gamewright Games. In this version you will play all four players. Click on the 'START GAME' button to read a brief (well kinda brief anyway) summary of the rules and begin.");
+alert ("Some of the island has started to sink, but luckily you start out with some treasure cards too. Good luck!");
+alert("During each turn you have 3 actions to use. You can move your token with the arrow keys, using one action per move. You can also click on any submerged tiles that you are on or adjacent to, 'to shore them up'.")
+alert("Click on the 'END TURN' button to advance to the next player's turn. You will recieve two treasure more cards (displayed on the right), and a few more tiles will begin to sink (remember you want to use actions to shore them up!)")
+alert("You can  move across submerged tiles, but you will want to try to 'shore them up' with your actions before they SINK completely. You cannot move over sunk tiles, and they cannot be saved")
+alert("Sometimes the 'WATERS WILL RISE'. This is BAD- when it happens, the flood cards already drawn are shuffled and put on the top of the deck so they will come up again and will quickly lead to submerged tiles becoming sunk")
+alert("When a player has 4 of the same treasure card they can discover that treasure by moving to one of the squares with a title colored like the treasure. Then click on the treasure to claim it.")
+alert("The game is won when you discover all 4 treasures, move all players back on the landing pad, and fly away using a 'HELICOPTER LIFT' card")
+alert("GOT IT? Let's hope so. You start playing as the "+player['name']+" ("+player['color']+").")
+$("#narrativebox h3 ").after ("<p>It's now the "+player['name']+"'s ("+player['color']+") turn.</p>");
 // };

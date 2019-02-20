@@ -19,7 +19,9 @@
     transform: scale(3, 3) translateX(+40%);
 }
 </style>
-
+<div id='header'>
+<h1>WELCOME!</h1>
+<p>Welcome to Zach's world!</p>
 <div id='about'>
   <p>“There exists a passion for comprehension, just as there exists a passion for music. 
     That passion is rather common in children but gets lost in most people later on. 
@@ -42,34 +44,26 @@
 </div>
 
 <div id='cutco'>
-  <h1>CUTCO-College and University Transfer Coursebook Online</h1>
-  <h2>The Project</h2>
-  <img class='projectpic' src='/static/cutcoscreenshot.png'>
-  <p>Community college students have to navigate an ever changing world of where and how their course credits will transfer to 4-year institutions. This site aims to ease the process by serving as a central repository for administrators and faculty to keep up to date on course information, and for students to stay in the know to complete their degrees </p>
-  <ol>
-    <li>Built on Django framework on Python-language code in order to better collaborate with current instructors </li>
-    <li>Uses built-in functionality of SQL-lite database, but includes medium complexity relationships of course equivalencies across many instututions, and varying administrative levels needed</li>
-    <li>Anticipated usage starting in April 2019</li>
-  </ol>
+  <h2><a href='/cutco'>CUTCO-College and University Transfer Coursebook Online</a></h2>
+  <img class='projectpic' src='screenshotcutco.png'>
+  <p>This site is a central hub for course transfer information for students, faculty, and administrators. It includes multiple-level models to establish permissions for teachers on multiple campuses with different roles, CRUD operations depending on those roles, and administrative dashboard to manage user access. Most importantly it serves as a quick and useful reference for students.
+</p>
 </div>
 
 <div id='nutellaWiki'>
-    <h1>NutellaWiki- A family repository</h1>
-    <h2>The Project</h2>
+    <h2><a href='/wiki' >NutellaWiki- A family repository</a></h2>
     <img class='projectpic' src='nutellawikiscreenshot.png'>
     <p>A direct lesson in obselescene, the impetus for this project was the impending closure my family's "Wiki". Started by my dad, 10 years ago, it mainly serves as an online spot for favorite (mostly holiday) recipes, and vacation planing and discussion.</p>
     <ol>
-      <li>Coded with Ruby on Rails, making use of the """"gem to have a WYSIWYG html editor for the whole family to create with.</li>
-      <li>Anticipated deployment February 2019</li>
+      <li>Coded with Ruby on Rails, making use of the tinymce to have a WYSIWYG html editor for the whole family to create with.</li>
       <li>Are you always calling your mom for that stuffing recipe? Put it on the Nutella Wiki instead!</li>
     </ol>
 </div>
 
 <div id='forbiddenIsland'>
-    <h1>Forbidden Island</h1>
-    <h2>The Project</h2>
-    <img class='projectpic' src='/static/fiscreenshot.png'>
-    <p>I'm an avid board gamer, and learning coding game me the skills to create games myself. This is a clone of the popular cooperative game "Forbidden Island".</p>
+    <h2><a href='/islandgame' >Forbidden Island</a></h2>
+    <img class='projectpic' src='fiscreenshot.png'>
+    <p>A clone of a popular cooperative board game, this online version is built on extensive javascript OOP. The sockets library is used to allow gamers to work together to collect all four treasures before the island sinks away</p>
     <ol>
       <li>Written using simple OOP javascript</li>
       <li>I've included some JQuery to make the animations pop</li>

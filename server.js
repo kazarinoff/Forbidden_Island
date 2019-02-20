@@ -59,6 +59,10 @@ io.on('connection', function(socket)
         }
         else {socket.emit('gamended',{message:"You cant win yet!"})}
     })
+    socket.on('stopgame',function(){
+        world= new World;
+        sendworld("You've given up, but good try!");
+    })
     socket.on('moveplayer',function(data){
         worldcontroller.moveplayer(world,data.keynum);
         sendworld();
