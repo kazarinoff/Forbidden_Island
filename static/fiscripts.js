@@ -204,9 +204,8 @@ $('#island').on('click','.prize.orb', function(){
 
 $(document).on()
 
-// alert("Welcome to the Forbidden Island! In this game you play four intrepid adventurers who have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Your goal is to collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!");
-// alert("This is webbased version of the popular boardgame designed by Matt Leacock and Gamewright Games. In this version you will play all four players. Click on the 'START GAME' button to read a brief (well kinda brief anyway) summary of the rules and begin.");
-
+alert("Welcome to the Forbidden Island! In this game you play four intrepid adventurers who have landed on a mysterious island in hopes of discovering powerful treasures, but you quickly discover that the island doesn't take kindly to visitors and is slowly sinking into the sea. Your goal is to collect all four treasure tokens and escape in your spaceship from the Landing Pad before you drown!");
+alert("This is webbased version of the popular boardgame designed by Matt Leacock and Gamewright Games. In this version you will play all four players. Click on the 'START GAME' button to read a brief (well kinda brief anyway) summary of the rules and begin.");
 // alert ("Some of the island has started to sink, but luckily you start out with some treasure cards too. Good luck!");
 // alert("During each turn you have 3 actions to use. You can move your token with the arrow keys, using one action per move. You can also click on any submerged tiles that you are on or adjacent to, 'to shore them up'.")
 // alert("Click on the 'END TURN' button to advance to the next player's turn. You will recieve two treasure more cards (displayed on the right), and a few more tiles will begin to sink (remember you want to use actions to shore them up!)")
