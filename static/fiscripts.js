@@ -4,6 +4,7 @@ var playernumber;
 //setting local variables for card values
 var tc=0, tl=1, tf=2,to=3, theli=4, tsb=5, twr=6;
 
+//displays island
 function displayIsland(world){
     var output = '';
     for (var i=0; i<world.island.length; i++){
@@ -207,4 +208,3 @@ alert("When a player has 4 of the same treasure card they can discover that trea
 alert("The game is won when you discover all 4 treasures, move all players back on the landing pad, and fly away using a 'HELICOPTER LIFT' card")
 alert("GOT IT? Let's hope so. You start playing as the "+player['name']+" ("+player['color']+").")
 $("#narrativebox h3 ").after ("<p>It's now the "+player['name']+"'s ("+player['color']+") turn.</p>");
-// };
