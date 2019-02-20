@@ -2,13 +2,7 @@ var thesocketworld; //set socketworld
 var playernumber;
 
 //setting local variables for card values
-var tc=0,
-    tl=1,
-    tf=2,
-    to=3,
-    theli=4,
-    tsb=5,
-    twr=6;
+var tc=0, tl=1, tf=2,to=3, theli=4, tsb=5, twr=6;
 
 function displayIsland(world){
     var output = '';
@@ -132,15 +126,12 @@ socket.on('theworld',function(data){
     displayEverthing(thesocketworld)
 })
 
-
-
 $('#endturnbutton').click (function (){
     socket.emit('endturn',{});
     });
 $('#endgamebutton').click(function(){
     socket.emit('endgame',{})
 });
-
 
 document.onkeydown= function(e){
     // if (thesocketworld.player.order==playernumber){

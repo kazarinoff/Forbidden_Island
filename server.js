@@ -30,7 +30,7 @@ const sendworld =function(message=''){
 
 io.on('connection', function(socket) 
     {
-    socket.on('here',function(data){
+    socket.on('here',function(){
         socket.emit('startsocket',{world,player:playernumber,message: 'welcome to the Forbidden Island! You are player '+playernumber});
         playernumber++;
     })
