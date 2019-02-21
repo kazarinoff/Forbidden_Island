@@ -1,59 +1,129 @@
+<html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">
 <style>
 *{
-    background-color: royalblue;
-    color:white;
-    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: royalblue; */
+    color: black;
+    font-family: 'Roboto', sans-serif;
 }
-.tvbox{
-    display: inline-block;
-    border: 1pt solid blueviolet;
-    vertical-align: top;
+body {
+  background-repeat: repeat;
+  background-position: top;
+  background-size: 120%;
+  background-image: url(background2opaque.png);
+}
+#header {
+  text-align: center;
+}
+#header p {
+
+}
+#about p{
+  font-size:16pt;
+}
+#einstein {
+  width: 300px;
+}
+#projects p {
+}
+.playfair {
+  font-family: 'Playfair Display', serif;
+}
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.icon {
+  background-color: white;
+  height: 50px;
+  width: 50px;
 }
 .projectpic{
     height: 200px;
 }
-
-.projectpic:hover {
+.project{
+  border-radius: 10px;
+  text-align: center;
+}
+button {
+  background-color: brown;
+  color: yellow;
+}
+#allskills {
+  text-align:center;
+}
+.skills {
+  text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  width: 20%;
+  height:160px;
+  border: 1pt solid black;
+  font-weight: bold;
+  margin-left:1%;
+  margin-right:1%;
+  margin-top: 10px;
+}
+.skills ul{
+  list-style-type:none;
+}
+.quote {
+  font-size: 18pt;
+  font-weight: bold;
+  text-emphasis: emp;
+}
+/* .projectpic:hover {
     -ms-transform: scale(1.5, 1.5);
     -webkit-transform: scale(1.5, 1.5);
     transform: scale(3, 3) translateX(+40%);
-}
+} */
 </style>
+</head>
+<body>
 <div id='header'>
-<h1>WELCOME!</h1>
-<p>Welcome to Zach's world!</p>
-<div id='about'>
-  <img src='einstein.jpg'>
-  <p>“There exists a passion for comprehension, just as there exists a passion for music. 
-    That passion is rather common in children but gets lost in most people later on. 
-    Without this passion, there would be neither mathematics nor natural science.”</p>
-    <h1>ABOUT ME</h1>
-    <p>A driven full stack developer with strong analytical and logic skills.  Steadiness,. 
-      My programming skills are enhanced by six years experience in non-profit fundraising, 
-      always with an eye towards furthering the mission of the company
-            Experience with customer facing positions 
-            </p>
-    <ul>
-        <li>Languages: JavaScript (ES5, ES6), Python, Ruby, TypeScript, HTML5, CSS</li>
-        <li>Front-End/Libraries: Mongoose, JQuery, Ajax, Bootstrap, SocketIO </li>
-        <li>Frameworks: Rails, Angular, Django, Node.js, Express, Flask</li>
-        <li>Dev Tools: AWS, GitHub, Nginx, VS Code, Postman, MySQL Workbench</li>
-        <li>Methodologies: OOP, MVC, TDD, CRUD Operations, RESTful architecture</li>
-        <li> Databases: PostgreSQL, SQLite, Mongoose, </li>
-        <li>CRMS: Tessitura, Salesforce</li>
-    </ul>
-</div>
+<h1 class='playfair'>Greetings</h1>
+  <img id='einstein' src='einstein.jpg'>
+  <p class='playfair quote'>“There exists a passion for comprehension, just as there exists a passion for music. 
+    <br>That passion is rather common in children but gets lost in most people later on. 
+    <br>Without this passion, there would be neither mathematics nor natural science.”</p>
+  </div>
+  <div id='about'>  
+      <a href='https://github.com/kazarinoff'><img class='icon' src='github.png'></a>    <a href='https://www.linkedin.com/in/zach-kazarinoff-b220bb173/'><img class='icon' src='linkedin.svg'></a>
+    <h1 class='playfair'>ZACH KAZARINOFF</h1>
 
+    <p>I am an analytical , logical, and practical full stack developer, working in Ruby on Rails, MEAN, and Django.
+      Before programming I was an arts administrator- fundraising and selling tickets for opera and ballet companies.
+      And before that I was a French horn player, practicing three hours a day trying to win a professional symphony audition.
+      As developer, I'm drawn to elegant simple solutions to problems that leave as much of the code to be understood as possible.
+      <br>I grew up in upstate New York (if you say Poughkeepsie is upstate I will fight you), with a midwestern soul, care of my Michigan raised parents, and now live in Dallas/Fort Worth Texas.
+      When I'm not learning new coding technologies, and writing code, I try to experience as much of the world as possible- especially art, music, and delicious food.
+      I love to travel, used to juggle, and currently play ultimate frisbee.</p>
+    <div id='allskills'>
+        <div class='playfair skills'>Languages<ul><li>JavaScript (ES5, ES6)</li><li>Python</li><li>Ruby</li><li>TypeScript</li><li>HTML5</li><li>CSS</li></ul></div>
+        <div class='playfair skills'>Front-End/Libraries<ul><li>Mongoose</li><li>JQuery</li><li>Ajax</li><li>Bootstrap</li><li>SocketIO</li></ul></div>
+        <div class='playfair skills'>Frameworks<ul><li>Rails</li><li>Angular</li><li>Django</li><li>Node.js</li><li>Express</li><li>Flask</li></ul></div>
+        <div class='playfair skills'>Dev Tools<ul><li>AWS (EC2, Route 57)</li><li>Git</li><li>Nginx</li><li>VS Code</li><li>Postman</li><li>My SQL Workbench</li></ul></div>
+        <div class='playfair skills'>Methodologies<ul><li>OPP</li><li>MVC</li><li>TDD</li><li>CRUD Operations</li><li>RESTful architecture</li></ul></div>
+        <div class='playfair skills'>Databases<ul><li>PostgreSQL</li><li>SQLite</li><li>Mongoose</li></ul></div>
+        <div class='playfair skills'>CRMs<ul><li>Tessitura</li><li>Salesforce</li></ul></div>
+    </div>
+</div>
+<button id=projectbutton>PROJECTS</button>
+<div id='projects' class='project'>
 <div id='cutco'>
-  <h2><a href='/cutco'>CUTCO-College and University Transfer Coursebook Online</a></h2>
-  <img class='projectpic' src='screenshotcutco.png'>
+  <h2 class='playfair'><a href='/cutco'>CUTCO-College and University Transfer Coursebook Online</a></h2>
+  <a href='/wiki' ><img class='projectpic' src='screenshotcutco.png'></a>
   <p>This site is a central hub for course transfer information for students, faculty, and administrators. It includes multiple-level models to establish permissions for teachers on multiple campuses with different roles, CRUD operations depending on those roles, and administrative dashboard to manage user access. Most importantly it serves as a quick and useful reference for students.
 </p>
 </div>
 
-<div id='nutellaWiki'>
-    <h2><a href='/wiki' >NutellaWiki- A family repository</a></h2>
-    <img class='projectpic' src='nutellawikiscreenshot.png'>
+<div id='nutellaWiki' class='project'>
+    <h2 class='playfair'><a href='/wiki' >NutellaWiki- A family repository</a></h2>
+    <a href='/wiki' ><img class='projectpic' src='nutellawikiscreenshot.png'></a>
     <p>A direct lesson in obselescene, the impetus for this project was the impending closure my family's "Wiki". Started by my dad, 10 years ago, it mainly serves as an online spot for favorite (mostly holiday) recipes, and vacation planing and discussion.</p>
     <ol>
       <li>Coded with Ruby on Rails, making use of the tinymce to have a WYSIWYG html editor for the whole family to create with.</li>
@@ -61,9 +131,9 @@
     </ol>
 </div>
 
-<div id='forbiddenIsland'>
-    <h2><a href='/islandgame' >Forbidden Island</a></h2>
-    <img class='projectpic' src='fiscreenshot.png'>
+<div id='forbiddenIsland' class='project'>
+    <h2 class='playfair'><a href='/islandgame' >Forbidden Island</a></h2>
+    <a href='/wiki' ><img class='projectpic' src='fiscreenshot.png'></a>
     <p>A clone of a popular cooperative board game, this online version is built on extensive javascript OOP. The sockets library is used to allow gamers to work together to collect all four treasures before the island sinks away</p>
     <ol>
       <li>Written using simple OOP javascript</li>
@@ -71,3 +141,16 @@
       <li>Find a friend to play! the game has socket functionality, to closer mirror the cooperative feel!</li>
     </ol>
 </div>
+</div>
+</body>
+<script>
+$(document).ready(function(){
+$('#header, #about').hide();
+$('#projectbutton').click(function(){
+  $('#header, #about').fadeToggle('slow');
+  $('#projects').toggle('slow');
+
+});
+});
+</script>
+</html>
