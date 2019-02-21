@@ -25,7 +25,7 @@ body>*{
 #header {
   text-align: center;
 }
-#about p{
+#about {
   font-size:14pt;
 }
 #einstein {
@@ -41,6 +41,11 @@ body>*{
   height: 50px;
   width: 50px;
   padding: 5px;
+}
+.minicon {
+  height: 30px;
+  width: 30px;
+  padding: 3px;
 }
 .projectpic{
     height: 200px;
@@ -65,10 +70,6 @@ body>*{
   color:black;
   text-decoration-line: underline;
 }
-button {
-  background-color: brown;
-  color: yellow;
-}
 #allskills {
   text-align:center;
 }
@@ -77,7 +78,7 @@ button {
   vertical-align: top;
   display: inline-block;
   width: 20%;
-  height:250px;
+  height:200px;
   border: 1pt solid black;
   border-radius:20px;
   background: rgba(255, 255, 255, 0.4);
@@ -86,14 +87,13 @@ button {
   margin-top: 10px;
   font-size:14pt;
 }
-.skills ul{
-  list-style-type:none;
+.skills p{
   font-size:12pt;
+  margin: 2pt;
 }
 .quote {
   font-size: 16pt;
   font-weight: bold;
-  text-emphasis: emp;
 }
 .projectpic:hover {
     -ms-transform: scale(1.5, 1.5);
@@ -129,13 +129,53 @@ button {
       When I'm not learning new coding technologies, and writing code, I try to experience as much of the world as possible- especially art, music, and delicious food.
       I love to travel, used to juggle, and currently play ultimate frisbee.</p>
     <div id='allskills'>
-        <div class=' skills'>Languages<ul><li>JavaScript (ES5, ES6)</li><li>Python</li><li>Ruby</li><li>TypeScript</li><li>HTML5</li><li>CSS</li></ul></div>
-        <div class=' skills'>Front-End/Libraries<ul><li>Mongoose</li><li>JQuery</li><li>Ajax</li><li>Bootstrap</li><li>SocketIO</li></ul></div>
-        <div class=' skills'>Frameworks<ul><li>Rails</li><li>Angular</li><li>Django</li><li>Node.js</li><li>Express</li><li>Flask</li></ul></div>
-        <div class=' skills'>Dev Tools<ul><li>AWS (EC2, Route 57)</li><li>Git</li><li>Nginx</li><li>VS Code</li><li>Postman</li><li>My SQL Workbench</li></ul></div>
-        <div class=' skills'>Methodologies<ul><li>OPP</li><li>MVC</li><li>TDD</li><li>CRUD Operations</li><li>RESTful architecture</li></ul></div>
-        <div class=' skills'>Databases<ul><li>PostgreSQL</li><li>SQLite</li><li>Mongoose</li></ul></div>
-        <div class=' skills'>CRMs<ul><li>Tessitura</li><li>Salesforce</li></ul></div>
+        <div class='skills'>Languages
+          <p>JavaScript (ES5, ES6)</p>
+          <p>Python</p>
+          <p>Ruby</p>
+          <p>TypeScript</p>
+          <p>HTML5</p>
+          <p>CSS</p>
+        </div>
+        <div class='skills'>Front-End/Libraries
+            <p>JQuery</p>
+            <p>Mongoose</p>
+            <p>Ajax</p>
+            <p>Bootstrap</p>
+            <p>SocketIO</p>
+          </div>
+        <div class='skills'>Development Tools
+            <p>AWS (EC2, Route 57)</p>
+            <p>Git</p>
+            <p>Nginx</p>
+            <p>VS Code</p>
+            <p>Postman</p>
+            <p>MYSQL Workbench</p>
+        </div>        
+        <div class='skills'>Methodologies
+            <p>OPP</p>
+            <p>MVC</p>
+            <p>TDD</p>
+            <p>CRUD Opearations</p>
+            <p>RESTful architecture</p>
+          </div>
+        <div class='skills'>Frameworks
+            <p>Rails</p>
+            <p>Angular</p>
+            <p>Django</p>
+            <p>Node.js</p>
+            <p>Express</p>
+            <p>Flask</p>
+        </div>
+        <div class='skills'>Databases
+            <p>PostgreSQL</p>
+            <p>SQLite</p>
+            <p>Mongoose</p>
+          </div>
+        <div class='skills'>CRMs
+            <p>Tessitura</p>
+            <p>Salesforce</p>
+          </div>
     </div>
     <button class='btn btn-warning' id='projectbutton2'>PROJECTS</button>
 </div>
