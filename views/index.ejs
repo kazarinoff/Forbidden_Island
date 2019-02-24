@@ -22,13 +22,17 @@ body>*{
   padding-right:7%;
   padding-top: 5%;
 }
+nav li {
+  margin-left:4px;
+  margin-right:4px;
+}
 #header {
   text-align: center;
 }
 #about {
   font-size:14pt;
 }
-#einstein {
+.profilepic {
   width: 300px;
 }
 .playfair {
@@ -95,20 +99,25 @@ body>*{
   font-size: 16pt;
   font-weight: bold;
 }
-.projectpic:hover {
+/* .projectpic:hover {
     -ms-transform: scale(1.5, 1.5);
     -webkit-transform: scale(1.5, 1.5);
     transform: scale(3, 3);
-}
+} */
 </style>
 </head>
 <body>
-<div><button class='btn btn-warning' id='projectbutton'>PROJECTS</button>
-<button class='btn btn-warning' id='aboutbutton'>ABOUT ZACH</button></div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <ul class="navbar-nav mr-auto">
+    <li class='navbar-item'><button class='btn btn-secondary' id='aboutbutton'>ABOUT ZACH</button></li>
+    <li class='navbar-item'><button class='btn btn-secondary' id='projectbutton'>PROJECTS</button></li>
+  </ul>
+</nav>
 
 <div id='header'>
 <h1 class='playfair'></h1>
-  <img id='einstein' src='einstein.jpg'>
+  <img class='profilepic' id='einstein' src='einstein.jpg'>
+  <img class='profilepic' id='zk' src='zk.jpg'>
   <p class='playfair quote'>“There exists a passion for comprehension, just as there exists a passion for music. 
     <br>That passion is rather common in children but gets lost in most people later on. 
     <br>Without this passion, there would be neither mathematics nor natural science.”</p>
@@ -116,7 +125,7 @@ body>*{
   <div id='about'>  
       <a href='mailto:zdk9@yahoo.com'><img class='icon' src='email.png'></a>      
       <a href='tel:+1-607-592-8160'><img class='icon' src='phone.png'></a>      
-      <a href=''><img class='icon' src='resume.png'></a>      
+      <a href='/Zach_Kazarinoff.docx'><img class='icon' src='resume.png'></a>      
       <a href='https://github.com/kazarinoff'><img class='icon' src='github2.png'></a>
       <a href='https://www.linkedin.com/in/zach-kazarinoff-b220bb173/'><img class='icon' src='linkedin.png'></a>
     <h1 class='playfair'>ZACH KAZARINOFF</h1>
@@ -124,8 +133,8 @@ body>*{
     <p>I am an analytical , logical, and practical full stack developer, working in Ruby on Rails, MEAN, and Django.
       Before programming I worked in the performing arts- fundraising and selling tickets for opera and ballet companies.
       And before that I was a French horn player, practicing three hours a day trying to win a professional symphony audition.
-      As a developer, I'm drawn to elegant simple solutions to problems with easily understood pathways.
-      <br>I grew up in upstate New York (if you say Poughkeepsie is upstate I will fight you), with a midwestern soul, care of my Michigan raised parents, and now live in Dallas/Fort Worth Texas.
+      <br>As a developer, I'm drawn to elegant simple solutions that can be followed by and explained to all stakeholders. I've learned that iteration is key to success. And I know the importance of always keeping the user top of mind.
+      <br>I grew up in upstate New York (no, Poughkeepsie doesn't count), with a midwestern soul care of my Michigan-raised parents, and now live in Dallas/Fort Worth Texas.
       When I'm not learning new coding technologies, and writing code, I try to experience as much of the world as possible- especially art, music, and delicious food.
       I love to travel, used to juggle, and currently play ultimate frisbee.</p>
     <div id='allskills'>
@@ -177,50 +186,56 @@ body>*{
             <p>Salesforce</p>
           </div>
     </div>
-    <button class='btn btn-warning' id='projectbutton2'>PROJECTS</button>
 </div>
 <div id='projects'>
 <div id='cutco' class='project'>
   <h2><a class='projectheading' href='/cutco'>CUTCO-College and University Transfer Coursebook Online</a></h2>
-  <h4 class=''>Technologies: Python, Django, SQLite, Bootstrap</h4>
+  <h5 class=''>Technologies: Python, Django, SQLite, Bootstrap</h5>
   <a href='/wiki' ><img class='projectpic' src='screenshotcutco.png'></a>
   <p>This site is a central hub for course transfer information for students, faculty, and administrators. 
     It includes multi-tiered models to establish permissions for teachers on different campuses with differing roles, 
     CRUD operations depending on those roles, and an administrative dashboard to manage user access. 
     Most importantly it serves as a quick and useful reference for students.
 </p>
-<h4><a href='/cutco' class='text-secondary'>Check out the site</a> | <a class='text-secondary' href='https://github.com/kazarinoff/CUTCO'>See the Code</a></h4>
+<h5><a href='/cutco' class='text-secondary'>Check out the site</a> | <a class='text-secondary' href='https://github.com/kazarinoff/CUTCO'>See the Code</a></h5>
 </div>
 
 <div id='nutellaWiki' class='project'>
     <h2 ><a class='projectheading' href='/wiki'>NutellaWiki- A family repository</a></h2>
-    <h4 class=''>Technologies: Rails, Ruby, Bootstrap, tinyMCE, bcrypt, SQLite </h4>
+    <h5 class=''>Technologies: Rails, Ruby, Bootstrap, tinyMCE, bcrypt, SQLite </h5>
     <a href='/wiki' ><img class='projectpic' src='nutellawikiscreenshot.png'></a>
     <p>The impetus for this project was the impending closure my family's "Wiki". Started over 10 years ago, it mainly served as an online spot for favorite (mostly holiday) recipes, 
       and vacation planing and discussion. The current iteration is built on Ruby on Rails, and uses the TINYMCE gem 
       to have a WYSIWYG text-editor so everyone can contribute their ideas, and format original content to be easily used and read.</p>
-      <h4><a href='/wiki' class='text-secondary'>Check out the site</a> | <a class='text-secondary' href='https://github.com/kazarinoff/NutellaWiki'>See the Code</a></h4>
+      <h5><a href='/wiki' class='text-secondary'>Check out the site</a> | <a class='text-secondary' href='https://github.com/kazarinoff/NutellaWiki'>See the Code</a></h5>
     </div>
 
 <div id='forbiddenIsland' class='project'>
     <h2 ><a class='projectheading' href='/islandgame' >Forbidden Island</a></h2>
-    <h4 class=''>Technologies: Node.js, Express, Sockets.io, JQuery</h4>
+    <h5 class=''>Technologies: Node.js, Express, Sockets.io, JQuery</h5>
     <a href='/wiki' ><img class='projectpic' src='fiscreenshot.png'></a>
     <p>A clone of a popular cooperative board game, this online version is built on extensive javascript OOP. 
       The sockets library is used to allow gamers to work together to collect all four treasures before the island sinks away</p>
-      <h4><a href='/islandgame' class='text-secondary'>Play the Game</a> | <a class='text-secondary' href='https://github.com/kazarinoff/Forbidden_Island'>See out the Code</a></h4>
+      <h5><a href='/islandgame' class='text-secondary'>Play the Game</a> | <a class='text-secondary' href='https://github.com/kazarinoff/Forbidden_Island'>See out the Code</a></h5>
     </div>
 </div>
 </body>
 <script>
 $(document).ready(function(){
-  $('#projects, #aboutbutton').hide();
-  $('#projectbutton, #projectbutton2, #aboutbutton').click(function(){
-    $('#header, #about, #aboutbutton, #projectbutton, #projectbutton2, #projects').toggle();
+  $('#projects, #zk').hide();
+  $('#projectbutton').click(function(){
+    $('#header, #about').hide();
+    $('#projects').show();
   });
-
+  $('#aboutbutton').click(function(){
+    $('#projects').hide();
+    $('#header, #about').show();
+  })
+  $('#about h1, .profilepic').click(function(){
+    $('#einstein, #zk').toggle();
+  })
   $('.skills').click(function(){
-    $("ul", this).slideToggle()
+    $("p", this).slideToggle()
   });
 });
 </script>
