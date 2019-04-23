@@ -11,11 +11,13 @@ var io = require('socket.io').listen(server);
 
 
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static('nodemodules/'))
 
 app.set(path.join('views', __dirname, 'views'));
 app.set('view engine', 'ejs');
 app.get('/islandgame',function(req,res){res.render('islandgame',{})});
+app.get('/blog',function(req,res){res.sendFile(path.join(__dirname, 'build/blog.html'))});
 app.get('/',function(req,res){res.render('index',{})});
 server.listen(port, function() {
     console.log(`listening on port ${port}`);

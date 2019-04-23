@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zach's Coding Thoughts</title>
+    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://localhost:8080</link>
+    <description>Coding Thoughts by Zach</description>
+    <pubDate>Tue, 23 Apr 2019 19:00:00 -0500</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>en</language>
+    <item>
+      <title>Switch-Case</title>
+      <link>http://localhost:8080/articles/Swith-Case/</link>
+      <pubDate>Tue, 23 Apr 2019 19:00:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/Swith-Case/</guid>
+      <author></author>
+      <description>&lt;p&gt;An interesting coding bit I’ve recently discovered is the “SWITCH, CASE” logic. &lt;/p&gt;
+&lt;h2 id=&quot;_&quot;&gt;_&lt;/h2&gt;
+&lt;p&gt;This is a bit of logic that is used in substitution of specific If/Else statements where the conditional has a few variations checking on the same variable. So for instance if you want to display something if “x is greater than 5” and display something else if “x is 0” and display something else if “x is less than 0”. This is the perfect syntax for that.&lt;/p&gt;
+&lt;p&gt;Note examples in this post will be in javascipt, but switch is also used in Ruby(‘case/when’), Java, C#, and many more. Notably Python does not have this functionality- see [this thread] (&lt;a href=&quot;https://stackoverflow.com/questions/1429505/does-python-have-an-equivalent-to-switch&quot;&gt;https://stackoverflow.com/questions/1429505/does-python-have-an-equivalent-to-switch&lt;/a&gt;) for some alternatives. TBH I’m not really clear on why it hasn’t been implemented.&lt;/p&gt;
+&lt;p&gt;Lets take a look at an example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function stoplight(color){
+    switch(color){
+        case (green):
+            console.log(&amp;quot;GOGOGO!&amp;quot;);
+            break;
+        case (yellow):
+            console.log(&amp;quot;maybe slowdown&amp;quot;);
+            break;
+        case (red):
+            console.log(&amp;quot;STOP!!!&amp;quot;);
+            break;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here our function takes in a stoplight color and outputs the appropriate backseat driver response.&lt;/p&gt;
+&lt;p&gt;That’s the basics.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Switch-Case - Zach's Coding Thoughts
+    </title>
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Coding Thoughts by Zach">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Switch-Case</h1>
+        <p class="author">Written by <span class="author">Zach</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p>An interesting coding bit I’ve recently discovered is the “<span class="caps">SWITCH</span>, <span class="caps">CASE</span>”<span class="widont">&nbsp;</span>logic. </p>
+<h2 id="_">_</h2>
+<p>This is a bit of logic that is used in substitution of specific If/Else statements where the conditional has a few variations checking on the same variable. So for instance if you want to display something if “x is greater than 5” and display something else if “x is 0” and display something else if “x is less than 0”. This is the perfect syntax for<span class="widont">&nbsp;</span>that.</p>
+<p>Note examples in this post will be in javascipt, but switch is also used in Ruby(‘case/when’), Java, C#, and many more. Notably Python does not have this functionality- see [this thread] (<a href="https://stackoverflow.com/questions/1429505/does-python-have-an-equivalent-to-switch">https://stackoverflow.com/questions/1429505/does-python-have-an-equivalent-to-switch</a>) for some alternatives. <span class="caps">TBH</span> I’m not really clear on why it hasn’t been<span class="widont">&nbsp;</span>implemented.</p>
+<p>Lets take a look at an<span class="widont">&nbsp;</span>example:</p>
+<pre><code>function stoplight(color){
+    switch(color){
+        case (green):
+            console.log(&quot;GOGOGO!&quot;);
+            break;
+        case (yellow):
+            console.log(&quot;maybe slowdown&quot;);
+            break;
+        case (red):
+            console.log(&quot;STOP!!!&quot;);
+            break;
+    }
+}</code></pre><p>Here our function takes in a stoplight color and outputs the appropriate backseat driver<span class="widont">&nbsp;</span>response.</p>
+<p>That’s the basics.</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">&laquo; Full blog</a></div>
+        <section class="about"><p>This blog has been brought to you by Zach</p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2019 Zach Kaz &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
